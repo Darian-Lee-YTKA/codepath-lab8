@@ -23,9 +23,18 @@ class DetailViewController: UIViewController {
 
     var movie: Movie!
 
-    @IBAction func didTapFavorite(_ sender: Any) {
+    @IBAction func didTapFavorite(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+            // 1.
+            movie.addToFavorites()
+        } else {
+            // 2.
+            movie.removeFromFavorites()
+        }
     }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         favoriteButton.layer.cornerRadius = favoriteButton.frame.width / 2
